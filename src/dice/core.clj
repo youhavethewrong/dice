@@ -9,9 +9,13 @@
   ([d]
    (inc (.nextInt (SecureRandom.) d)))
   ;; Roll a virtual die with d sides n times.
-  ([n d]
+  ([d n]
    (for [i (range n)] 
      (roll d)))
+  ;; Roll s sets of virtual dice with d sides n times.
+  ([d n s]
+   (for [j (range s)]
+     (roll d n)))
   )
 
 

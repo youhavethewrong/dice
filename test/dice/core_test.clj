@@ -11,6 +11,21 @@
     (let [r (roll 6)]
       (is (within-range r 6))))
   (testing "Roll a 6 sided dice 3 times"
-    (let [rs (roll 3 6)]
+    (let [rs (roll 6 3)]
       (is (= 3 (count rs)))
-      (is (every? #(within-range % 6) rs)))))
+      (is (every? #(within-range % 6) rs))))
+  (testing "Roll 6 sets of 6 sided dice 3 times"
+    (let [rs (roll 6 3 6)]
+      (is (= 6 (count rs)))
+      (is (every? #(= 3 (count %)) rs))
+      (is (every? #(within-range % 6) (flatten rs))))))
+
+
+
+
+
+
+
+
+
+
